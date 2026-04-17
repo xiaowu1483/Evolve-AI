@@ -1,0 +1,39 @@
+# 会话结束触发配置（启动反思代理）
+# TODO: Implement logic here
+# triggers/on_session_end.yaml
+
+# 会话结束触发器配置
+# 当用户结束对话时，自动启动反思代理进行记忆固化
+
+trigger_name: "session_reflection"
+event: "session_end"
+enabled: true
+priority: 10
+
+conditions:
+  min_session_duration_seconds: 30  # 会话短于 30 秒不触发反思
+  require_user_input: true          # 必须有用户输入才触发
+
+actions:
+  - type: "agent"
+    class: "ReflectionAgent"
+    method: "run"
+    params:
+      session_id: "${session.id}"   # 动态变量，替换为当前会话 ID
+      log_path: "${session.log_path}"
+    timeout_seconds: 60
+    on_error: "log_only"            # 失败仅记录日志，不阻断流程
+
+  - type: "tool"
+    class: "SessionMigrator"
+    method: "migrate_session"
+    params:
+      session_id: "${session.id}"
+    timeout_seconds: 10
+    on_error: "retry"               # 失败重试
+    retry_count: 3
+
+notifications:
+  on_success: false
+  on_failure: true                  # 反思失败时通知用户
+  channel: "console"                # 通知渠道

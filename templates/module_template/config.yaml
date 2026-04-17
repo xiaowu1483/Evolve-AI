@@ -1,0 +1,40 @@
+# templates/module_template/config.yaml
+
+# 模块元数据配置模板
+# 复制此文件到 src/modules/[模块名]/config.yaml
+# 此文件用于 loader.py 读取，并同步到 Wiki 注册表
+
+# 模块名称 (唯一标识)
+name: "[Module_Name]"
+
+# 版本号 (遵循语义化版本)
+version: "1.0.0"
+
+# 模块描述 (将显示在 Wiki 注册表中)
+description: "请在此处填写模块的详细功能描述"
+
+# 作者信息
+author: "AI Assistant"
+
+# 触发关键词列表 (用于意图识别)
+triggers:
+  - "[keyword_1]"
+  - "[keyword_2]"
+
+# 权限需求 (供安全模块校验)
+permissions:
+  - "read_wiki"       # 读取 Wiki 权限
+  - "write_log"       # 写入日志权限
+  # - "write_wiki"    # 写入 Wiki 权限 (需谨慎)
+  # - "execute_code"  # 执行代码权限 (高风险)
+
+# 外部依赖 (Python 包)
+dependencies:
+  - "requests"
+  # - "numpy"
+
+# 配置参数 (模块内部使用的常量)
+settings:
+  timeout: 30
+  max_retries: 3
+  # api_key: "${ENV_VAR_NAME}"  # 支持引用环境变量

@@ -1,0 +1,23 @@
+# templates/config_template.yaml
+
+# 通用配置文件模板
+# 适用于创建新的配置文件
+
+# 配置版本
+version: "1.0"
+
+# 配置项
+settings:
+  enabled: true
+  threshold: 0.5
+  options:
+    - "option_a"
+    - "option_b"
+
+# 环境变量引用示例
+# api_key: "${MY_API_KEY}"
+
+# 注释说明
+# 1. 所有配置项应使用小写字母和下划线
+# 2. 敏感信息请使用环境变量引用
+# 3. 修改后请验证格式合法性

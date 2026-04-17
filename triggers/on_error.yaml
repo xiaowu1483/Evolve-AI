@@ -1,0 +1,45 @@
+# triggers/on_error.yaml
+
+# 错误处理触发器配置
+# 当系统发生特定级别错误时，自动启动修复工具
+
+trigger_name: "error_recovery"
+event: "error"
+enabled: true
+priority: 20
+
+conditions:
+  error_levels: ["CRITICAL", "ERROR"]
+  exclude_patterns: ["ConnectionTimeout"] # 忽略网络超时错误
+  max_trigger_per_hour: 5           # 防止错误风暴导致无限循环
+
+actions:
+  - type: "tool"
+    class: "BackupManager"
+    method: "create_directory_backup"
+    params:
+      dir_path: "wiki"
+      reason: "before_error_recovery"
+    timeout_seconds: 10
+    on_error: "ignore"
+
+  - type: "tool"
+    class: "WikiRepairer"
+    method: "run_full_repair"
+    params: {}
+    timeout_seconds: 30
+    on_error: "log_only"
+
+  - type: "agent"
+    class: "MaintenanceAgent"
+    method: "auto_fix"
+    params:
+      issue_type: "auto_detected"
+    timeout_seconds: 60
+    on_error: "notify_user"
+
+notifications:
+  on_success: false
+  on_failure: true
+  channel: "console"
+  message_template: "系统检测到错误并已尝试自动修复，请检查 runtime/maintenance_report.md"

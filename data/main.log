@@ -1,0 +1,59 @@
+2026-04-18 01:41:07,233 - Main - INFO - Initializing PersonalAI...
+2026-04-18 01:41:07,235 - Main - INFO - Loaded system config: security_level=strict
+2026-04-18 01:41:07,235 - Main - INFO - SecurityManager initialized
+2026-04-18 01:41:07,235 - Main - INFO - WikiManager initialized
+2026-04-18 01:41:07,235 - Main - INFO - CoreEngine initialized
+2026-04-18 01:41:07,236 - Main - INFO - Loaded 0 modules
+2026-04-18 01:41:07,241 - Main - INFO - Loaded 3 triggers
+2026-04-18 01:41:07,241 - Main - INFO - Agents initialized
+2026-04-18 01:41:07,241 - Main - INFO - PersonalAI initialization complete
+2026-04-18 01:41:07,242 - Main - INFO - Session started: e833d43c
+2026-04-18 01:41:27,567 - Main - INFO - Processed input: 现在是什么时间了...
+2026-04-18 01:41:46,909 - Main - INFO - Executing trigger: session_reflection
+2026-04-18 01:41:46,909 - Main - INFO - Session ended, reflection triggered
+2026-04-18 01:41:46,909 - Main - INFO - Shutting down PersonalAI...
+2026-04-18 01:41:46,909 - Main - INFO - PersonalAI shutdown complete
+2026-04-18 01:57:41,301 - Main - INFO - Initializing PersonalAI...
+2026-04-18 01:57:41,303 - Main - INFO - Loaded system config: security_level=strict
+2026-04-18 01:57:41,303 - Main - INFO - SecurityManager initialized
+2026-04-18 01:57:41,303 - Main - INFO - WikiManager initialized
+2026-04-18 01:57:41,964 - Main - INFO - CoreEngine initialized
+2026-04-18 01:57:41,964 - Main - INFO - Loaded 0 modules
+2026-04-18 01:57:41,969 - Main - INFO - Loaded 3 triggers
+2026-04-18 01:57:41,970 - Main - INFO - Agents initialized
+2026-04-18 01:57:41,970 - Main - INFO - PersonalAI initialization complete
+2026-04-18 01:57:41,970 - Main - INFO - Session started: 16a5aaad
+2026-04-18 01:58:18,192 - Main - INFO - Processed input: 你好...
+2026-04-18 01:58:45,654 - Main - INFO - Executing trigger: session_reflection
+2026-04-18 01:58:45,654 - Main - INFO - Session ended, reflection triggered
+2026-04-18 01:58:45,655 - Main - INFO - Session started: 7d198207
+2026-04-18 01:58:52,131 - Main - INFO - Executing trigger: session_reflection
+2026-04-18 01:58:52,131 - Main - INFO - Session ended, reflection triggered
+2026-04-18 01:58:52,131 - Main - INFO - Shutting down PersonalAI...
+2026-04-18 01:58:52,132 - Main - INFO - PersonalAI shutdown complete
+2026-04-18 02:06:02,687 - Main - INFO - Initializing PersonalAI...
+2026-04-18 02:06:02,689 - Main - INFO - Loaded system config: security_level=strict
+2026-04-18 02:06:02,689 - Main - INFO - SecurityManager initialized
+2026-04-18 02:06:02,689 - Main - INFO - WikiManager initialized
+2026-04-18 02:06:03,331 - Main - INFO - CoreEngine initialized
+2026-04-18 02:06:03,332 - Main - INFO - Loaded 0 modules
+2026-04-18 02:06:03,337 - Main - INFO - Loaded 3 triggers
+2026-04-18 02:06:03,337 - Main - INFO - Agents initialized
+2026-04-18 02:06:03,337 - Main - INFO - PersonalAI initialization complete
+2026-04-18 02:06:03,338 - Main - INFO - Session started: 5c7fb661
+2026-04-18 02:06:37,663 - Main - INFO - Processed input: 现在时间是什么时候了...
+2026-04-18 02:06:59,683 - Main - INFO - Received interrupt signal
+2026-04-18 02:06:59,684 - Main - INFO - Shutting down PersonalAI...
+2026-04-18 02:06:59,684 - Main - INFO - PersonalAI shutdown complete
+2026-04-18 02:06:59,684 - Main - INFO - Shutting down PersonalAI...
+2026-04-18 02:06:59,684 - Main - INFO - PersonalAI shutdown complete
+2026-04-18 02:07:53,551 - Main - INFO - Initializing PersonalAI...
+2026-04-18 02:07:53,553 - Main - INFO - Loaded system config: security_level=strict
+2026-04-18 02:07:53,553 - Main - INFO - SecurityManager initialized
+2026-04-18 02:07:53,553 - Main - INFO - WikiManager initialized
+2026-04-18 02:07:54,199 - Main - INFO - CoreEngine initialized
+2026-04-18 02:07:54,200 - Main - INFO - Loaded 0 modules
+2026-04-18 02:07:54,205 - Main - INFO - Loaded 3 triggers
+2026-04-18 02:07:54,206 - Main - INFO - Agents initialized
+2026-04-18 02:07:54,206 - Main - INFO - PersonalAI initialization complete
+2026-04-18 02:07:54,207 - Main - INFO - Session started: b4bfc68f

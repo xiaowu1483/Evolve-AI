@@ -1,0 +1,40 @@
+# 系统基础配置
+# TODO: Implement logic here
+# config/system.yaml
+
+# 系统基础配置
+# 控制核心引擎、LLM 连接和安全策略
+
+# LLM 客户端配置
+llm:
+  provider: "openai"           # 提供商：openai, anthropic, local
+  model: "gpt-4o"              # 模型名称
+  base_url: "https://api.openai.com/v1" # API 地址
+  temperature: 0.7             # 创造性参数
+  max_tokens: 4096             # 最大输出 token 数
+  timeout_seconds: 60          # 请求超时时间
+
+# 安全策略
+security:
+  level: "strict"              # strict, moderate, loose
+  allow_code_execution: true   # 是否允许执行 AI 生成的代码
+  sandbox_enabled: true        # 是否启用沙箱
+  read_only_dirs:              # 只读目录列表
+    - "src/core"
+    - "config"
+    - ".git"
+  max_file_size_mb: 10         # 单个文件最大大小
+
+# 系统行为
+system:
+  auto_backup: true            # 修改前自动备份
+  log_level: "INFO"            # DEBUG, INFO, WARNING, ERROR
+  enable_triggers: true        # 是否启用触发器系统
+  session_timeout_minutes: 30  # 会话超时时间
+
+# 路径配置 (通常无需修改)
+paths:
+  wiki: "wiki"
+  src: "src"
+  runtime: "runtime"
+  data: "data"

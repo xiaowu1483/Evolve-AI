@@ -1,0 +1,79 @@
+# triggers/trigger_schema.json
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Trigger Configuration Schema",
+  "description": "用于验证 triggers/ 目录下 YAML 配置文件的合法性，AI 创建新触发器时需遵循此结构",
+  "type": "object",
+  "properties": {
+    "trigger_name": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "唯一标识符，小写字母和下划线"
+    },
+    "event": {
+      "type": "string",
+      "enum": ["session_end", "idle", "error", "startup", "custom"],
+      "description": "触发事件类型"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "是否启用该触发器"
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "优先级，数字越大越先执行"
+    },
+    "conditions": {
+      "type": "object",
+      "description": "触发条件键值对",
+      "additionalProperties": true
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["agent", "tool"]
+          },
+          "class": {
+            "type": "string",
+            "description": "类名，需在 agents/ 或 tools/ 中存在"
+          },
+          "method": {
+            "type": "string",
+            "description": "要调用的方法名"
+          },
+          "params": {
+            "type": "object",
+            "description": "方法参数，支持 ${variable} 动态替换"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "on_error": {
+            "type": "string",
+            "enum": ["ignore", "log_only", "retry", "notify_user", "skip"]
+          }
+        },
+        "required": ["type", "class", "method"]
+      }
+    },
+    "notifications": {
+      "type": "object",
+      "properties": {
+        "on_success": {"type": "boolean"},
+        "on_failure": {"type": "boolean"},
+        "channel": {"type": "string"},
+        "message_template": {"type": "string"}
+      }
+    }
+  },
+  "required": ["trigger_name", "event", "actions"]
+}

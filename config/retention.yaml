@@ -1,0 +1,36 @@
+# 日志保留策略（压缩/删除规则）
+# TODO: Implement logic here
+# config/retention.yaml
+
+# 日志与数据保留策略
+# 控制存储空间占用，由 tools/log_rotator.py 执行
+
+retention_policy:
+  # 原始对话归档 (wiki/06_Raw_Archives)
+  raw_archives:
+    keep_days: 30            # 保留 30 天
+    compress_after_days: 7   # 7 天后压缩为.gz
+    delete_after_days: 90    # 90 天后彻底删除
+    max_size_mb: 500         # 最大总大小，超出后优先删除旧文件
+
+  # 反思日志 (wiki/05_Reflection_Logs)
+  reflection_logs:
+    keep_forever: true       # 默认永久保留 (知识核心)
+    compress_after_months: 6 # 6 个月前的可压缩
+    max_count_per_month: 100 # 每月最多保留 100 条，超出合并
+
+  # 运行时日志 (runtime/)
+  runtime_logs:
+    keep_days: 7             # 运行日志保留 7 天
+    max_size_mb: 100         # 最大 100MB
+
+  # 备份文件 (data/backups)
+  backups:
+    keep_days: 30            # 备份保留 30 天
+    max_count_per_file: 10   # 每个文件最多保留 10 个版本
+
+# 安全检查
+safety_check:
+  require_summary: true      # 删除原始日志前必须存在反思摘要
+  backup_before_delete: true # 删除前最后一次备份
+  confirm_large_deletes: true # 删除超过 100MB 数据需确认

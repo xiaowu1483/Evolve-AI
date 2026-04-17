@@ -1,0 +1,43 @@
+# 空闲触发配置（启动维护代理）
+# TODO: Implement logic here
+# triggers/on_idle.yaml
+
+# 系统空闲触发器配置
+# 当系统无操作达到指定时长，自动启动维护代理
+
+trigger_name: "idle_maintenance"
+event: "idle"
+enabled: true
+priority: 5
+
+conditions:
+  idle_threshold_seconds: 300       # 空闲 5 分钟触发
+  check_interval_seconds: 60        # 每 1 分钟检查一次空闲状态
+  only_when_charged: true           # 仅当设备充电时触发 (可选，节省电量)
+
+actions:
+  - type: "agent"
+    class: "MaintenanceAgent"
+    method: "run_full_check"
+    params: {}
+    timeout_seconds: 120
+    on_error: "log_only"
+
+  - type: "tool"
+    class: "LogRotator"
+    method: "run_full_rotation"
+    params: {}
+    timeout_seconds: 30
+    on_error: "skip"                # 日志清理失败则跳过
+
+  - type: "tool"
+    class: "WikiSynchronizer"
+    method: "run_sync"
+    params:
+      auto_fix: false               # 空闲时不自动修复，仅检查
+    timeout_seconds: 30
+    on_error: "skip"
+
+notifications:
+  on_success: false
+  on_failure: false                 # 维护失败通常不打扰用户

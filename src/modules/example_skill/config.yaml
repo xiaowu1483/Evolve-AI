@@ -1,0 +1,17 @@
+# src/modules/example_skill/config.yaml
+
+# 模块元数据配置
+# 此文件用于 loader.py 读取，并同步到 Wiki 注册表
+
+name: "Example Skill"
+version: "1.0.0"
+description: "这是一个示例技能模块，用于演示模块结构。"
+author: "System"
+triggers:
+  - "example"
+  - "test"
+  - "demo"
+permissions:
+  - "read_wiki"
+  - "write_log"
+dependencies: []
