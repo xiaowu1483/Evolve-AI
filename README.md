@@ -14,14 +14,23 @@
 
 ## 目录结构
 PersonalAI/ 
+
 ├── wiki/ # 核心知识库 (LLM Wiki 模式) 
+
 ├── src/ # 源代码 
+
 ├── agents/ # 智能代理 (反思、维护、固化) 
+
 ├── tools/ # 维护工具 (备份、验证、同步) 
+
 ├── runtime/ # 运行时数据 
-├── triggers/ # 触发器配置 
-├── config/ # 系统配置 
+
+├── triggers/ # 触发器配置
+
+├── config/ # 系统配置
+
 ├── templates/ # 标准模板 
+
 └── data/ # 持久化数据
 
 
